@@ -24,5 +24,8 @@ new Vue({
 
       this.name = '';
     },
-  },
+    removeMonster(index) {
+      this.monsters.splice(index, 1);
+    }
+  }
 });

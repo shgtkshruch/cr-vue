@@ -7,7 +7,14 @@
 </head>
 <body>
   <div id="app">
-    <!-- この#appの内側にテンプレートを書き込んでいく -->
+    <ul>
+      <li v-for="monster in monsters"
+        :key="monster.id"
+        :class="{ strong: monster.hp > 300 }" >
+        ID.{{ monster.id }} {{ monster.name }} HP.{{ monster.hp }}
+        <span v-if="monster.hp > 300">Strong!</span>
+      </li>
+    </ul>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
   <script src="main.js"></script>

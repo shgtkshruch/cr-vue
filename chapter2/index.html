@@ -14,6 +14,8 @@
         :key="monster.id"
         :class="{ strong: monster.hp > 300 }" >
         ID.{{ monster.id }} {{ monster.name }} HP.{{ monster.hp }}
+        <span v-if="monster.hp < 50" class="dying">dying</span>
+        <button @click="attack(index)">Attack</button>
         <button @click="removeMonster(index)">Remove</button>
       </li>
     </ul>

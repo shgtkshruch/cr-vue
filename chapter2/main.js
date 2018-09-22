@@ -26,6 +26,13 @@ new Vue({
     },
     removeMonster(index) {
       this.monsters.splice(index, 1);
+    },
+    attack(index) {
+      this.monsters[index].hp -= 10;
+
+      if (this.monsters[index].hp <= 0) {
+        this.removeMonster(index);
+      }
     }
   }
 });

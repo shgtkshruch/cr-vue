@@ -1,3 +1,13 @@
-.strong {
-  color: #ff7979;
+button {
+  background: #eb516b;
+  border: none;
+  border-radius: 2px;
+  padding: 4px 16px;
+  color: #fff;
+  transition: background-color .25s;
+  cursor: pointer
+}
+
+button:hover {
+  background: #da1944
 }

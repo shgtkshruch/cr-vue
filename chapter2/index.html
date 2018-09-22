@@ -7,12 +7,13 @@
 </head>
 <body>
   <div id="app">
+    <input type="text" v-model="name">
+    <button @click="addMonster">Add Monster</button>
     <ul>
       <li v-for="monster in monsters"
         :key="monster.id"
         :class="{ strong: monster.hp > 300 }" >
         ID.{{ monster.id }} {{ monster.name }} HP.{{ monster.hp }}
-        <span v-if="monster.hp > 300">Strong!</span>
       </li>
     </ul>
   </div>

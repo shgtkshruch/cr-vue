@@ -7,16 +7,14 @@
 </head>
 <body>
   <div id="app">
-    <select v-model="current">
-      <option v-for="topic in topics" :value="topic.value">
-        {{ topic.name }}
-      </option>
-    </select>
+    <input @keyup.enter="search">
+    <p v-if="total_count != 0">{{ total_count }} 件中 {{ limit }}件表示</p>
     <ul>
       <li v-for="repository in repositories">
         <h2>
           <a :href="repository.html_url" target="_blank">{{ repository.name }}</a>
         </h2>
+        <p>star: {{ repository.stargazers_count }}</p>
       </li>
     </ul>
   </div>

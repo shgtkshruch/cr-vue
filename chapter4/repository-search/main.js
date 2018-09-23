@@ -1,21 +1,21 @@
 new Vue({
   el: '#app',
   data: {
-    current: '',
+    keyword: '',
     repositories: [],
-    topics: [
-      { value: 'vue', name: 'Vue.js' },
-      { value: 'jQuery', name: 'jQuery' }
-    ]
+    total_count: 0,
+    limit: 30
   },
-  watch: {
-    current(val) {
+  methods: {
+    search(event) {
+      const val = event.target.value;
       axios.get('https://api.github.com/search/repositories', {
         params: {
           q: `topic:${val}`
         }
       }).then(response => {
         this.repositories = response.data.items
+        this.total_count = response.data.total_count;
       });
     }
   }

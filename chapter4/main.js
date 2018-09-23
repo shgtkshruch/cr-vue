@@ -3,6 +3,7 @@ new Vue({
   data: {
     budget: 300,
     limit: 2,
+    showAll: false,
     fruits: [
       { id: 1, name: 'りんご', price: 100 },
       { id: 2, name: 'ばなな', price: 200 },
@@ -18,7 +19,12 @@ new Vue({
       }, this);
     },
     limited() {
-      return this.matched.slice(0, this.limit);
+      if (this.showAll) {
+        this.budget = '';
+        return this.fruits;
+      } else {
+        return this.matched.slice(0, this.limit);
+      }
     }
   }
 });

@@ -8,6 +8,7 @@
 <body>
   <div id="app">
     <input type="number" v-model.number="budget"> 円以下に絞り込む
+    <input type="checkbox" v-model="showAll"> 全件表示
     <p>{{ matched.length }} 件中 {{ limited.length }} 件を表示</p>
     <ul>
       <li v-for="fruit in limited" :key="fruit.id">

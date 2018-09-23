@@ -4,6 +4,7 @@ new Vue({
     budget: 300,
     limit: 2,
     showAll: false,
+    order: false,
     fruits: [
       { id: 1, name: 'りんご', price: 100 },
       { id: 2, name: 'ばなな', price: 200 },
@@ -21,10 +22,15 @@ new Vue({
     limited() {
       if (this.showAll) {
         this.budget = '';
-        return this.fruits;
+        return this.sorted(this.fruits);
       } else {
-        return this.matched.slice(0, this.limit);
+        return this.sorted(this.matched).slice(0, this.limit);
       }
     }
+  },
+  methods: {
+    sorted(array) {
+      return _.orderBy(array, 'price', this.order ? 'desc' : 'asc');
+    },
   }
 });

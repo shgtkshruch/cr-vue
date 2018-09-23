@@ -9,14 +9,16 @@
   <div id="app">
     <input type="number" v-model.number="budget"> 円以下に絞り込む
     <input type="checkbox" v-model="showAll"> 全件表示
+    <button @click="order=!order">並び替え</button>
     <p>{{ matched.length }} 件中 {{ limited.length }} 件を表示</p>
     <ul>
       <li v-for="fruit in limited" :key="fruit.id">
-        {{ fruit.name }} {{ fruit.price }} yen
+        {{ fruit.name }} {{ fruit.price }} 円
       </li>
     </ul>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.5/lodash.min.js"></script>
   <script src="main.js"></script>
 </body>
 </html>

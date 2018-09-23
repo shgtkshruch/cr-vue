@@ -7,8 +7,10 @@
 </head>
 <body>
   <div id="app">
+    <input type="number" v-model.number="budget"> 円以下に絞り込む
+    <p>{{ matched.length }} 件中 {{ limited.length }} 件を表示</p>
     <ul>
-      <li v-for="fruit in fruits" :key="fruit.id">
+      <li v-for="fruit in limited" :key="fruit.id">
         {{ fruit.name }} {{ fruit.price }} yen
       </li>
     </ul>

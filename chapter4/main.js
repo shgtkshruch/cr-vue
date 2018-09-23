@@ -1,6 +1,8 @@
 new Vue({
   el: '#app',
   data: {
+    budget: 300,
+    limit: 2,
     fruits: [
       { id: 1, name: 'りんご', price: 100 },
       { id: 2, name: 'ばなな', price: 200 },
@@ -8,5 +10,15 @@ new Vue({
       { id: 4, name: 'おれんじ', price: 300 },
       { id: 5, name: 'めろん', price: 500 }
     ]
+  },
+  computed: {
+    matched() {
+      return this.fruits.filter(el => {
+        return el.price <= this.budget;
+      }, this);
+    },
+    limited() {
+      return this.matched.slice(0, this.limit);
+    }
   }
 });
